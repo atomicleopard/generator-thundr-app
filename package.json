@@ -1,0 +1,35 @@
+{
+  "name": "generator-thundr-app",
+  "version": "5.0.3",
+  "description": "Yeoman generator for a thundr app - Creates a web application using the thundr framework - http://3wks.github.io/thundr/",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "atomicleopard/generator-thundr-app",
+  "author": {
+    "name": "Nick Okunew - Atomic Leopard",
+    "email": "nick@atomicleopard.com",
+    "url": "https://github.com/atomicleopard"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator thundr java grunt bower maven angular angularjs mvc server jetty tomcat"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}

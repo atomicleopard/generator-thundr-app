@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<groupId><%= _.slugify(project) %></groupId>
+	<artifactId><%= _.slugify(project) %></artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+
+	<parent>
+		<groupId>com.threewks.thundr</groupId>
+		<artifactId>thundr-app</artifactId>
+		<version>3.0.0-SNAPSHOT</version>
+	</parent>
+
+	<dependencies>
+		<!-- Additional or overridden dependencies go here -->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- This plugin runs the grunt build at the appropriate lifecycle points of the maven build -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution> <!-- grunt clean during mvn clean -->
+						<id>clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>grunt</executable>
+							<arguments>
+								<argument>clean</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution> <!-- grunt build during mvn generate-sources -->
+						<id>build</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>generate-sources</phase>
+						<configuration>
+							<executable>grunt</executable>
+							<arguments>
+								<argument>build</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution> <!-- grunt test during mvn test -->
+						<id>test</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>test</phase>
+						<configuration>
+							<executable>grunt</executable>
+							<arguments>
+								<argument>test</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.3.1.v20150714</version>
+				<configuration>
+					<scanIntervalSeconds>2</scanIntervalSeconds>
+					<webApp>
+						<contextPath>/</contextPath>
+					</webApp>
+					<httpConnector>
+					    <host>0.0.0.0</host>
+					    <port>8081</port>
+					</httpConnector>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modelVersion>4.0.0</modelVersion>
+</project>
