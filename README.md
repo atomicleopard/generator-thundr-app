@@ -1,9 +1,8 @@
-# generator-thundr-gae [![Build Status](https://travis-ci.org/atomicleopard/generator-thundr-gae.svg)](https://travis-ci.org/atomicleopard/generator-thundr-gae)
+# generator-thundr-app [![Build Status](https://travis-ci.org/atomicleopard/generator-thundr-app.svg)](https://travis-ci.org/atomicleopard/generator-thundr-app)
 
 [![thundr Logo](http://3wks.github.io/thundr/2.0/static/img/logoFullSmall.png)](http://3wks.github.io/thundr/) 
 
-This [Yeoman](http://yeoman.io) generator will create application scaffolding for a [thundr](http://3wks.github.io/thundr/)/AngularJS application
-ready for Google AppEngine which is setup up to use [Maven](http://maven.apache.org/), [Grunt](http://gruntjs.com) and [Bower](http://bower.io).
+This [Yeoman](http://yeoman.io) generator will create application scaffolding for a [thundr](http://3wks.github.io/thundr/)/AngularJS application which is setup up to use [Maven](http://maven.apache.org/), [Grunt](http://gruntjs.com) and [Bower](http://bower.io).
 
 This is the java hipster's toolchain of choice for modern web apps.
 
@@ -13,22 +12,16 @@ Once you're done, you will be able to:
 
     mvn package
 
-#### Deploy to appengine
-
-    mvn appengine:update -PenvironmentName
 
 #### Have live changes to your css, javascript, less, fonts, images watch and processed in realtime 
 ``grunt`` while running your app.
 
-##### Run the appengine locally
 
-    mvn appengine:devserver
-
-##### Debug in Eclipse using the GPE and grunt watch
-Create a run-config in Eclipse using the GPE for a standard maven webapp on port 8080.
+##### Debug in Eclipse using with live updates of web resources using grunt watch
+Create a run-config in Eclipse using a standard maven webapp on port 8080.
 Run grunt on the command line using ``grunt``
 
-##### Debug in IntelliJ using the Google Plugin and grunt watch
+##### Debug in IntelliJ using with live updates of web resources gusing runt watch
 Create a run config in IntelliJ on port 8081
 Run grunt on the command line or IntelliJ's grunt integration ``grunt``. This circumvents issues with IntelliJ not sycning file changes properly without frame
 deactivation followed by reactivation.
@@ -43,14 +36,15 @@ This toolchain requires:
 * Node
 * Bower (installed globally using npm - ``npm install -g bower``)
 * Grunt (installed globally using npm - ``npm install -g grunt``)
-* This generator installed (``npm install -g generator-thundr-gae``)
+* This generator installed (``npm install -g generator-thundr-app``)
+* or - if already installed (``npm update -g generator-thundr-app``)
 * ImageMagick installed (as per [grunt-favicons](https://github.com/gleero/grunt-favicons))
 
 Then just run the generator in your desired project directory and answer the questions:
 ``
 mkdir my-project;
 cd my-project;
-yo thundr-gae
+yo thundr-app
 ``
 
 # What does it do:
@@ -65,7 +59,7 @@ Projects generated have a tip-top build pipeline
   * Includes your application web assets - ``/src/main/webapp/``
   * Runs unit tests with surefire, all classes ending in *Test.java in ``/src/test/java/``
   * Runs integration tests with failsafe, all classes ending in *IT.java in ``/src/int-test/java/``
-  * Creates a standard thundr-gae application layout, including ``ApplicationModule``, ``Routes``, a placeholder
+  * Creates a standard thundr-app application layout, including ``ApplicationModule``, ``Routes``, a placeholder
     controller and matching jsp and a reusable layout.tag
   
 ### Bower Dependencies
@@ -142,16 +136,16 @@ $ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-thundr-gae from npm, run:
+To install generator-thundr-app from npm, run:
 
 ``
-$ npm install -g generator-thundr-gae
+$ npm install -g generator-thundr-app
 ``
 
 Finally, initiate the generator:
 
 ``
-$ yo thundr-gae
+$ yo thundr-app
 ``
 
 ### Getting To Know Yeoman
