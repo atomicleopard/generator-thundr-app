@@ -8,8 +8,13 @@
 	<parent>
 		<groupId>com.threewks.thundr</groupId>
 		<artifactId>thundr-app</artifactId>
-		<version>3.0.0-SNAPSHOT</version>
+		<version>3.0.0</version>
 	</parent>
+
+	<properties>
+		<java.version>1.<%= javaVersion %></java.version>
+		<gpg.keyname></gpg.keyname>
+	</properties>
 
 	<dependencies>
 		<!-- Additional or overridden dependencies go here -->
@@ -74,8 +79,8 @@
 						<contextPath>/</contextPath>
 					</webApp>
 					<httpConnector>
-					    <host>0.0.0.0</host>
-					    <port>8081</port>
+						<host>0.0.0.0</host>
+						<port>8081</port>
 					</httpConnector>
 				</configuration>
 			</plugin>

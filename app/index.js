@@ -32,10 +32,19 @@ var ThundrGaeGenerator = yeoman.generators.Base.extend({
     		message: 'What is the name of this project?'
     	});
     }
+    if(!this.config.get('javaVersion')){
+    	prompts.push({
+    		name: 'javaVersion',
+    		message: 'What is the java version for this module (i.e. 7, 8, 9)?'
+    	});
+    }
 
     this.prompt(prompts, function (props) {
       this.project = props.project || this.config.get('project');
+      this.javaVersion = props.javaVersion || this.config.get('javaVersion');
+      
       this.config.set('project', this.project);
+      this.config.set('javaVersion', this.javaVersion);
       this.config.save();
       done();
     }.bind(this));
@@ -44,6 +53,7 @@ var ThundrGaeGenerator = yeoman.generators.Base.extend({
   app: function () {
     this.copy('gitignore', '.gitignore');
     this.template('_Gruntfile.js', 'Gruntfile.js');
+    this.template('_java-version', '.java-version');
     this.template('_pom.xml', 'pom.xml');
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
